@@ -29,9 +29,9 @@
 
 . reset перемещает ветку на нужный коммит, а checkout перемещает лишь HEAD:
 
-image::checkout & reset __ difference 1.PNG[]
+image::checkout & reset __ difference 1.png[]
 
-image::checkout & reset __ difference 2.PNG[]
+image::checkout & reset __ difference 2.png[]
 
 
 
