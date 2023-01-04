@@ -6,7 +6,7 @@ https://techrocks.ru/2022/03/31/git-diff-command/[статья про diff с п
 
 *git diff –cached* == *git diff –staged* -- для индексированного файла
 
-image::whole.PNG[]
+image::whole.png[]
 
 Для файла *dog.txt* две версии: *a* и *b*
 
