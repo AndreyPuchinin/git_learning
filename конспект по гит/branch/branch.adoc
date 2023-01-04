@@ -1,0 +1,3 @@
+= git branch
+
+*_$ git branch -d <branch name>_* -- удаление ветви

@@ -1,0 +1,14 @@
+== Прочитанное:
+
+. git status
+. git add
+. gitignore
+. diff
+. git log
+. git reset
+
+== Прочесть:
+. git checkout
+. git branch
+. git commit
+. git merge
