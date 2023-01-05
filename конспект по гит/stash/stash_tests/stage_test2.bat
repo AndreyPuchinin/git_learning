@@ -89,3 +89,11 @@ git log --oneline --decorate --graph --all
 
 
 pause
+
+
+:log 
+@echo.
+@echo.
+@powershell write-host -back Red %1
+@echo.
+@exit /B 0
