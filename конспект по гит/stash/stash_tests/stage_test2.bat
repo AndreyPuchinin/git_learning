@@ -42,6 +42,9 @@ git status
 git log --oneline --decorate --graph --all
 
 
+pause
+
+
 call :log "========= create branch_2"
 git checkout -b branch_2
 git log --oneline --decorate --graph --all
@@ -70,14 +73,35 @@ git log --oneline --decorate --graph --all
 
 
 
-call :log "========= put stash list from master branch to branch_2"
+call :log "========= trying to put stash list from master branch to branch_2"
 git stash apply stash@{1}
 git status
 git log --oneline --decorate --graph --all
 
 
+call :log "=========  edit, add and commit file1.txt in branch_2"
+echo 'state 2 in branch_2' > file1.txt
+git add file1.txt
+git commit -m "resolving conflict: commiting working directory"
+git status
+git log --oneline --decorate --graph --all
+
+
+call :log "========= retrying to put stash list from master branch to branch_2"
+git stash apply stash@{1}
+git status
+git log --oneline --decorate --graph --all
+
+
+call :log "=========  add and commit stashed from master to branch_2"
+git add file1.txt
+git commit -m "commiting restashed data to avoid conglict"
+git status
+git log --oneline --decorate --graph --all
+
+
 call :log "========= move to master branch"
-git checkout branch_2
+git checkout master 
 git status
 git log --oneline --decorate --graph --all
 
@@ -88,7 +112,11 @@ git status
 git log --oneline --decorate --graph --all
 
 
-pause
+call :log "=========  add and commit stashed from branch_2 to master" 
+git add file1.txt
+git commit -m "commiting restashed data to avoid conglict"
+git status
+git log --oneline --decorate --graph --all
 
 
 :log 
