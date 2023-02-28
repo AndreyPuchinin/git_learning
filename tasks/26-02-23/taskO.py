@@ -33,30 +33,31 @@ class TaskOClass1:
             raise Exception
 
 
+def trick(els):
+    def trick_decorator(func):
+        def _wrapper(*args, **kwargs):
+            task_o_1 = TaskOClass1(els)
+            global get_input
+            foo1 = get_input
+            get_input = task_o_1.get_input
+            func(*args, **kwargs)
+            get_input = foo1
+        return _wrapper
+    return trick_decorator
+
+
 class TaskOTest(TestCase):
+    @trick([20, 10, 0])
     def test_1(self):
-        task_o_1 = TaskOClass1([20, 10, 0])
-        global get_input
-        foo1 = get_input
-        get_input = task_o_1.get_input
         self.assertEqual(second_max()[1], 10)
-        get_input = foo1
 
+    @trick([10, 20, 20, 0])
     def test_2(self):
-        task_o_1 = TaskOClass1([10, 20, 20, 0])
-        global get_input
-        foo1 = get_input
-        get_input = task_o_1.get_input
         self.assertEqual(second_max()[1], 20)
-        get_input = foo1
 
+    @trick([0])
     def test_3(self):
-        task_o_1 = TaskOClass1([0])
-        global get_input
-        foo1 = get_input
-        get_input = task_o_1.get_input
         self.assertEqual(second_max()[1], 0)
-        get_input = foo1
 
 
 if __name__ == '__main__':
